@@ -18,16 +18,14 @@ public class Main {
     private static final String JSON_file = "/your output json file name";
 
     private static List<HashMap<Integer,String>> readCSVFile(File file) throws IOException{
-        String fileName = file.getName();
-        String companyName = fileName.substring(0,fileName.lastIndexOf('_'));
         List<HashMap<Integer,String>> dataList = new ArrayList<>();
         try(FileReader reader = new FileReader(file);
             CSVParser parser = new CSVParser(reader, CSVFormat.DEFAULT.withFirstRecordAsHeader())){
             for(CSVRecord record:parser){
                 HashMap<Integer,String> dataMap = new HashMap<>();
-                String questionId = record.get("ID");
+                String ID = record.get("ID");   //use record.get to get the data you want all data are int the string format 
                 int id = Integer.parseInt(questionId);
-                dataMap.put(id,companyName);
+                dataMap.put(id,"/value for the key");
                 dataList.add(dataMap);
             }
         }
@@ -62,14 +60,14 @@ public class Main {
             HashMap<Integer,HashSet<String>> map = new HashMap<>();
             for(HashMap<Integer,String> data:allData){
                 for(int id:data.keySet()){
-                    String companyName = data.get(id);
+                    String name = data.get(id);
                     if(!map.containsKey(id)){
                         HashSet<String> input = new HashSet<>();
-                        input.add(companyName);
+                        input.add(name);
                         map.put(id,input);
                     }else{
                         HashSet<String> input = map.get(id);
-                        input.add(companyName);
+                        input.add(name);
                         map.put(id,input);
                     }
                 }
