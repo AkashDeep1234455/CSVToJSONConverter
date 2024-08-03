@@ -14,8 +14,8 @@ import java.util.HashMap;
 import java.util.*;
 
 public class Main {
-    private static final String CSV_path = "C:/Users/Asus/Downloads/Company-wise-Leetcode-master/data/LeetCode-Questions-CompanyWise";
-    private static final String JSON_file = "C:/Users/Asus/Downloads/output.json";
+    private static final String CSV_path = "/your file path name";
+    private static final String JSON_file = "/your output json file name";
 
     private static List<HashMap<Integer,String>> readCSVFile(File file) throws IOException{
         String fileName = file.getName();
